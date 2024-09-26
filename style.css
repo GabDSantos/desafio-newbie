@@ -1,0 +1,135 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,9..144,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --fonte1: Montserrat;
+    --fonte2: Fraunces;
+    --cor1: hsl(30, 38%, 92%);
+    --cor2: hsl(158, 36%, 37%);
+    --cor3: hsl(212, 21%, 14%);
+    --cor4: hsl(228, 12%, 48%);
+    --cor5: hsl(0, 0%, 100%);
+}
+
+body {
+    background-color: var(--cor1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Garante que o corpo ocupe a altura total */
+    margin: 0;
+}
+
+.layout {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    max-width: 1440px; /* Largura máxima para desktop */
+    width: 100%; /* Largura total disponível */
+    padding: 20px; /* Espaçamento interno */
+}
+
+.product-image {
+    width: 50%; /* A imagem ocupará 50% do layout */
+    max-width: 400px; /* Largura máxima da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 10px 0 0 10px; /* Bordas arredondadas do lado esquerdo */
+    object-fit: cover; /* Cobre o espaço da imagem sem distorção */
+    display: none; /* Esconder imagens por padrão */
+}
+
+.desktop-image {
+    display: block; /* Mostrar imagem de desktop por padrão */
+}
+
+main {
+    background-color: var(--cor5);
+    width: 50%; /* O main ocupará 50% do layout */
+    max-width: 400px; /* Largura máxima do main */
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 0 10px 10px 0; /* Bordas arredondadas do lado direito */
+}
+
+h1 {
+    font-size: 3em;
+}
+
+.conteiner > h1, p {
+    font-family: var(--fonte2);
+    padding-bottom: 40px;
+}
+
+article > p {
+    font-family: var(--fonte1);
+    font-size: 14px;
+}
+
+.conteudo {
+    color: var(--cor3);
+}
+
+#preço {
+    color: var(--cor2);
+    font-size: 2em;
+}
+
+#desconto {
+    font-size: medium;
+    color: var(--cor4);
+    text-decoration: line-through;
+}
+
+#carrinho {
+    color: var(--cor5);
+    background-color: var(--cor2);
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#carrinho:hover {
+    background-color: var(--cor3);
+}
+
+#preço, #desconto {
+    display: inline-table;
+    padding-right: 30px;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Media Queries para dispositivos menores */
+@media (max-width: 375px) {
+    .desktop-image {
+        display: none; /* Esconder imagem de desktop em telas pequenas */
+    }
+
+    .mobile-image {
+        display: block; /* Mostrar imagem móvel em telas pequenas */
+    }
+
+    .layout {
+        flex-direction: column; /* Muda a direção do layout para coluna em telas pequenas */
+    }
+
+    .product-image {
+        width: 100%; /* A imagem ocupará 100% da largura */
+        max-width: none; /* Remove o limite máximo da imagem */
+        border-radius: 10px; /* Bordas arredondadas em todas as direções */
+    }
+
+    main {
+        width: 100%; /* O main ocupará 100% da largura */
+        border-radius: 10px; /* Bordas arredondadas em todas as direções */
+    }
+}
